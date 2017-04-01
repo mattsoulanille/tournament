@@ -1,7 +1,7 @@
 "use strict";
 
 var socket = io();
-
+var room = window.location.pathname;
 
 /*
 var xmlhttp = new XMLHttpRequest();
@@ -38,6 +38,10 @@ let setBracket = function(data) {
     });
 }
 
+
+socket.on("connect", function() {
+    socket.emit('room', room);
+});
 
 socket.on("onConnected", setBracket);
 
