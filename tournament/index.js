@@ -22,7 +22,7 @@ http.listen(port, function() {
 });
 
 var bracket;
-var bracketPath = "brackets"
+var bracketPath = "brackets";
 
 io.on('connection', function(client) {
     client.on("room", function(room) {

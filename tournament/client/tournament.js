@@ -9,7 +9,7 @@ var room = window.location.pathname;
 function shuffleBracket() {
     var ask = confirm("Are you sure you want to shuffle the bracket?");
     if (ask) {
-	var toShuffle = []
+	    var toShuffle = [];
 	bracketData.teams.forEach(function(item) {
 	    toShuffle.push(item[0]);
 	    toShuffle.push(item[1]);
@@ -26,7 +26,7 @@ function shuffleBracket() {
 	    newTeams.push(pairing);
 	}
 	bracketData.teams = newTeams;
-	setBracket(bracketData);
+	    setBracket(bracketData);
     }
     
 }
@@ -69,7 +69,7 @@ xmlhttp.onreadystatechange = function() {
 
 var bracket;
 var bracketData;
-let setBracket = function(data) {
+function setBracket(data) {
     bracketData = data;
     $('.jQBracket').remove(); // Disgusting code. Just Disgusting
     $(function() {
@@ -99,13 +99,13 @@ socket.on('test', function(data) {
 
 var onSave = function(data) {
     bracketData = data;
-    socket.emit('bracket', data)
+	socket.emit('bracket', data);
 };
 
 
 window.onbeforeunload = function() {
     socket.disconnect();
 
-}
+};
 
 
